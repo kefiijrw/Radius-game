@@ -1,11 +1,11 @@
 /*! 
- * The Center Game v.0.1
- * Description: https://github.com/kefiijrw/The-Center-Game
+ * The Center Game v.1.1
+ * https://github.com/kefiijrw/The-Center-Game
  *
  * Author: Sergey Nikolaev
  * kefiijrw.com
  *
- * Date: 2022-09-26
+ * Date: 2022-10-14
  */
 
 var min_angle = 5;
@@ -28,24 +28,48 @@ var mode = 2;
 var round_count = 5;
 var score_limit = 40;
 
+dpr = window.devicePixelRatio || 1;
+
 var canvas_t = document.getElementById('canvas_top');
 var canvas_b = document.getElementById('canvas_bottom');
 var canvas_c = document.getElementById('canvas_circle');
+
 
 var c_b = canvas_b.getContext('2d');
 var c_t = canvas_t.getContext('2d');
 var c_c = canvas_c.getContext('2d');
 
-c_b.canvas.width = window.innerWidth;
-c_b.canvas.height = window.innerHeight;
-c_t.canvas.width = window.innerWidth;
-c_t.canvas.height = window.innerHeight;
-c_c.canvas.width = window.innerWidth;
-c_c.canvas.height = window.innerHeight;
+c_b.canvas.width = window.innerWidth*dpr;
+c_b.canvas.height = window.innerHeight*dpr;
+c_t.canvas.width = window.innerWidth*dpr;
+c_t.canvas.height = window.innerHeight*dpr;
+c_c.canvas.width = window.innerWidth*dpr;
+c_c.canvas.height = window.innerHeight*dpr;
+
+c_b.scale(dpr, dpr);
+c_t.scale(dpr, dpr);
+c_c.scale(dpr, dpr);
+
+c_b.canvas.style.width = window.innerWidth + 'px';
+c_b.canvas.style.height = window.innerHeight + 'px';
+c_t.canvas.style.width = window.innerWidth + 'px';
+c_t.canvas.style.height = window.innerHeight + 'px';
+c_c.canvas.style.width = window.innerWidth + 'px';
+c_c.canvas.style.height = window.innerHeight + 'px';
+
 
 
 var score;
 var score_speed = 10;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,8 +113,8 @@ function draw_question() {
 
 
 
-      c_t.canvas.width = window.innerWidth;
-      c_t.canvas.height = window.innerHeight;
+      // c_t.canvas.width = window.innerWidth;
+      // c_t.canvas.height = window.innerHeight;
 
       c_t.beginPath();
 
